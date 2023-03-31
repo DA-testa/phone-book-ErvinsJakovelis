@@ -27,7 +27,7 @@ def process_queries(queries):
                 result.append(response)
             else:
                 contacts.pop(cur_query.number)
-        else:
+        elif cur_query.type == 'find':
             if contacts.get(cur_query.number) == None:
                 response = 'not found'
                 result.append(response)
@@ -37,5 +37,7 @@ def process_queries(queries):
 
 if __name__ == '__main__':
     write_responses(process_queries(read_queries()))
+
+
 
 
