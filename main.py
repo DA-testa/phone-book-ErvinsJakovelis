@@ -23,8 +23,7 @@ def process_queries(queries):
             contacts[cur_query.number] = cur_query.name         
         elif cur_query.type == 'del':
             if contacts.get(cur_query.number) == None:
-                response = 'not found'
-                result.append(response)
+                pass
             else:
                 contacts.pop(cur_query.number)
         elif cur_query.type == 'find':
@@ -37,7 +36,3 @@ def process_queries(queries):
 
 if __name__ == '__main__':
     write_responses(process_queries(read_queries()))
-
-
-
-
