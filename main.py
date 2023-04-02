@@ -21,10 +21,7 @@ def process_queries(queries):
     for cur_query in queries:
         if cur_query.type == 'add':
             contacts[cur_query.number] = cur_query.name         
-        elif cur_query.type == 'del':
-            if contacts.get(cur_query.number) == None:
-                pass
-            else:
+        elif cur_query.type == 'del' and contacts.get(cur_query.number) != None:
                 contacts.pop(cur_query.number)
         elif cur_query.type == 'find':
             if contacts.get(cur_query.number) == None:
@@ -36,3 +33,4 @@ def process_queries(queries):
 
 if __name__ == '__main__':
     write_responses(process_queries(read_queries()))
+
